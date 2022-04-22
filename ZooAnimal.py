@@ -303,7 +303,7 @@ class big_fish(Animal):
 ## grass
 class Grass(Animal):
      #Attributes
-    diet = ['leaves']
+    diet = []
     
     #Constructors
     def __init__(self):
@@ -311,6 +311,34 @@ class Grass(Animal):
 
     def __repr__(self):
         rep = 'grass'
+        return rep
+
+    #Methods
+    def reproduce(self):
+        return "Pollonate"
+    
+    def type(self):
+        return(self.value)
+
+    def eats(self,Food):
+            if Food in self.diet:
+                self.Test = True
+                return
+            else:
+                Test = False
+
+
+## leaves
+class Leaves(Animal):
+     #Attributes
+    diet = []
+    
+    #Constructors
+    def __init__(self):
+        self.value = "leaves"
+
+    def __repr__(self):
+        rep = 'leaves'
         return rep
 
     #Methods

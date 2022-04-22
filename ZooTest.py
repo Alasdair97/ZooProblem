@@ -10,35 +10,69 @@ Grass = Grass()
 #obj.eats('bug')
 #print(obj.diet)
 
-GroupOfZoo = [Bear, Bug, Grass]
+#small test group
+GroupOfZoo = [Bug, Bear, Grass]
+i = 0
 
-while GroupOfZoo:
+Stop = 1
+
+while Stop == 1:
     
     Length = len(GroupOfZoo)
+    
     HungryAnimal = GroupOfZoo[i]
+    print(i)
+    
+    if i != 0: #Branch: Eat Left if not on far left
+        LeftChoice = GroupOfZoo[i-1]
 
-    if i == 0 and not Length == 1:
+        print(repr(HungryAnimal), 'Is Hungry')
+        #print(HungryAnimal.Test)
+        print('A')
+
+        print(repr(LeftChoice), 'is next to', repr(HungryAnimal))
+        HungryAnimal.eats(repr(LeftChoice))
+
+        if HungryAnimal.Test == True: #Eat and del victim from array
+                    print(repr(HungryAnimal), 'eats', repr(LeftChoice))
+                    LeftChoice.die
+                    del GroupOfZoo[i-1]
+                    HungryAnimal.Test = False
+                    print('B')
+        elif HungryAnimal.Test == False: #Cant eat left
+            print(repr(HungryAnimal), 'does not eat', repr(LeftChoice))
+            i = i + 1
+            print('F')
+            if i == Length: #Branch: Try to eat left but can't and at end of list
+             Stop = 2
+            
+    elif i == 0 and not Length == 1:
         RightChoice = GroupOfZoo[i+1]
 
         print(repr(HungryAnimal), 'Is Hungry')
-        print(HungryAnimal.Test) 
+        #print(HungryAnimal.Test)
+        print('C')
 
         print(repr(RightChoice), 'is next to', repr(HungryAnimal))
         HungryAnimal.eats(repr(RightChoice))
 
         if HungryAnimal.Test == True:
                     print(repr(HungryAnimal), 'eats', repr(RightChoice))
-        else:
+                    RightChoice.die
+                    del GroupOfZoo[i+1]
+                    print('D')
+                    HungryAnimal.Test = False
+        elif HungryAnimal.Test == False:
             print(repr(HungryAnimal), 'does not eat', repr(RightChoice))
+            i = i + 1
+            print('E')
 
+print('Animals left')    
+print(GroupOfZoo)       
+            
 
-HungryAnimal.Test = False
+            
 
-RightChoice = GroupOfZoo[2]
-
-print(repr(RightChoice))
-HungryAnimal.eats(repr(RightChoice))
-print(HungryAnimal.Test)
 
 '''
 GroupOfZoo = [Bear, Bug, Grass]

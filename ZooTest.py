@@ -1,90 +1,106 @@
 # Zoo Problem
-from ZooAnimal import Bear,Bug,Grass
+from ZooAnimal import Antelope,Big_Fish,Bear,Bug,Chicken,Cow,Fox,Giraffe,Leaves,Lion,Grass,Sheep
 
 Bear = Bear()
 Bug = Bug()
 Grass = Grass()
+Antelope = Antelope()
+Big_Fish = Big_Fish()
+Chicken = Chicken()
+Cow = Cow()
+Fox = Fox()
+Giraffe = Giraffe() 
+Leaves = Leaves()
+Lion = Lion()
+Sheep = Sheep()
 
-# for i in range(obj.diet())
-#print(obj.diet)
-#obj.eats('bug')
-#print(obj.diet)
+#test group
+#GroupOfZoo = [Lion,Antelope,Bug, Bear, Grass,Fox]
+#Question Group
+GroupOfZoo = [Fox,Bug,Chicken,Sheep]
 
-#small test group
-GroupOfZoo = [Bug, Bear, Grass]
+
+
+print('Starting Animals:')
+print(GroupOfZoo)
+
 i = 0
+Stop = []
 
-Stop = 1
-
-while Stop == 1:
+while Stop == []:
     
     Length = len(GroupOfZoo)
     
     HungryAnimal = GroupOfZoo[i]
-    print(i)
-    
-    if i != 0: #Branch: Eat Left if not on far left
-        LeftChoice = GroupOfZoo[i-1]
 
-        print(repr(HungryAnimal), 'Is Hungry')
-        #print(HungryAnimal.Test)
-        print('A')
-
-        print(repr(LeftChoice), 'is next to', repr(HungryAnimal))
-        HungryAnimal.eats(repr(LeftChoice))
-
-        if HungryAnimal.Test == True: #Eat and del victim from array
-                    print(repr(HungryAnimal), 'eats', repr(LeftChoice))
-                    LeftChoice.die
-                    del GroupOfZoo[i-1]
-                    HungryAnimal.Test = False
-                    print('B')
-        elif HungryAnimal.Test == False: #Cant eat left
-            print(repr(HungryAnimal), 'does not eat', repr(LeftChoice))
-            i = i + 1
-            print('F')
-            if i == Length: #Branch: Try to eat left but can't and at end of list
-             Stop = 2
-            
-    elif i == 0 and not Length == 1:
+    if i == 0 and not Length == 1: #First loop
+        
         RightChoice = GroupOfZoo[i+1]
-
-        print(repr(HungryAnimal), 'Is Hungry')
-        #print(HungryAnimal.Test)
-        print('C')
-
-        print(repr(RightChoice), 'is next to', repr(HungryAnimal))
         HungryAnimal.eats(repr(RightChoice))
 
         if HungryAnimal.Test == True:
+            
+            print(repr(HungryAnimal), 'eats', repr(RightChoice))
+            RightChoice.die
+            del GroupOfZoo[i+1]
+            HungryAnimal.Test = False
+            
+        elif HungryAnimal.Test == False:
+        
+            i = i + 1
+
+    elif i ==0 and Length == 1: #Last animal standing
+
+        Stop = 2
+        
+    elif i != 0 and i == Length-1: #Last loop
+        
+        LeftChoice = GroupOfZoo[i-1]
+        HungryAnimal.eats(repr(LeftChoice))
+
+        if HungryAnimal.Test == True: #Eat and del victim from array try eat left agin
+            
+            print(repr(HungryAnimal), 'eats', repr(LeftChoice))
+            LeftChoice.die
+            del GroupOfZoo[i-1]
+            HungryAnimal.Test = False
+            
+        if HungryAnimal.Test == False: #Cant eat left so end
+
+            Stop = 2
+
+    elif i != 0 and i != Length-1: #mid loops
+        
+        LeftChoice = GroupOfZoo[i-1]
+        HungryAnimal.eats(repr(LeftChoice))
+
+        if HungryAnimal.Test == True: #Eat left and del victim from array
+                
+                print(repr(HungryAnimal), 'eats', repr(LeftChoice))
+                LeftChoice.die
+                del GroupOfZoo[i-1]
+                HungryAnimal.Test = False
+                i = 0
+                    
+        elif HungryAnimal.Test == False: #Cant eat left so try right
+            
+                RightChoice = GroupOfZoo[i+1]
+                HungryAnimal.eats(repr(RightChoice))
+
+                if HungryAnimal.Test == True: #Eat animal on right
+                    
                     print(repr(HungryAnimal), 'eats', repr(RightChoice))
                     RightChoice.die
                     del GroupOfZoo[i+1]
-                    print('D')
                     HungryAnimal.Test = False
-        elif HungryAnimal.Test == False:
-            print(repr(HungryAnimal), 'does not eat', repr(RightChoice))
-            i = i + 1
-            print('E')
+                    
+                elif HungryAnimal.Test == False: #Move to next animal
 
-print('Animals left')    
+                    i = i + 1
+            
+            
+            
+
+print('Animals left:')    
 print(GroupOfZoo)       
-            
-
-            
-
-
-'''
-GroupOfZoo = [Bear, Bug, Grass]
-
-for i in GroupOfZoo:
-    GroupOfZoo[i] = HungryAnimal
-
-    if i = 0:
-        GroupOfZoo[i+1] = RightChoice
-        HungryAnimal.eats(RightChoice.type)
-        if HungryAnimal.Test == True
-            RightChoice.die()
-        else
-         pass           
- '''   
+        

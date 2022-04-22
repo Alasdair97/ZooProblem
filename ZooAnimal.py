@@ -90,65 +90,88 @@ class Bird(Animal):
         
 class Antelope(Mammal):
      #Attributes
-
+    diet = ['grass']
     #Constructors
     def __init__(self):
-        self.value = "Antelope"
+        self.value = "antelope"
+
+    def __repr__(self):
+        rep = 'antelope'
+        return rep
 
 
     #Methods
     def type(self):
         return(self.value)
 
-    def diet(self):
-        return "grass"
+    def eats(self,Food):
+            if Food in self.diet:
+                self.Test = True
+                return
+            else:
+                Test = False
 
 ################## Fox
         
 class Fox(Mammal):
      #Attributes
-
+    diet = ['chicken','sheep']
     #Constructors
     def __init__(self):
-        self.value = "Fox"
+        self.value = "fox"
 
+    def __repr__(self):
+        rep = 'fox'
+        return rep
 
     #Methods
     def type(self):
         return(self.value)
 
-    def diet(self):
-        return "chicken sheep"
+    def eats(self,Food):
+            if Food in self.diet:
+                self.Test = True
+                return
+            else:
+                Test = False
 
 ################## giraffe
         
-class giraffe(Mammal):
+class Giraffe(Mammal):
      #Attributes
-
+    diet = ['leaves']
     #Constructors
     def __init__(self):
         self.value = "giraffe"
 
+    def __repr__(self):
+        rep = 'giraffe'
+        return rep
+
     #Methods
     def type(self):
         return(self.value)
 
-    def diet(self):
-        return "leaves"
+    def eats(self,Food):
+            if Food in self.diet:
+                self.Test = True
+                return
+            else:
+                Test = False
 
 ################## bear ###################################################
         
 class Bear(Mammal):
      #Attributes
-    diet = ['big_fish','Bug','chicken','cow','leaves','sheep']
+    diet = ['big_fish','bug','chicken','cow','leaves','sheep']
 
 
     #Constructors
     def __init__(self):
-        self.value = "Bear"
+        self.value = "bear"
 
     def __repr__(self):
-        rep = 'Bear'
+        rep = 'bear'
         return rep
 
 
@@ -171,62 +194,91 @@ class Bear(Mammal):
         
 class Cow(Mammal):
      #Attributes
-    
+    diet = ['grass']
     #Constructors
     def __init__(self):
-        self.value = "Cow"
+        self.value = "cow"
 
+    def __repr__(self):
+        rep = 'cow'
+        return rep
+    
 
     #Methods
     def type(self):
         return(self.value)
 
-    def diet(self):
-        return 'grass'
+    def eats(self,Food):
+            if Food in self.diet:
+                self.Test = True
+                return
+            else:
+                Test = False
     
 ################## Lion
         
 class Lion(Mammal):
      #Attributes
-    
+    diet = ['antelope','cow']
     #Constructors
     def __init__(self):
-        self.value = "Lion"
+        self.value = "lion"
+
+    def __repr__(self):
+        rep = 'lion'
+        return rep
+
 
 
     #Methods
     def type(self):
         return(self.value)
 
-    def diet(self):
-        return 'antelope''cow'
+    def eats(self,Food):
+            if Food in self.diet:
+                self.Test = True
+                return
+            else:
+                Test = False
 
 ################## Panda
         
 class Panda(Mammal):
      #Attributes
-    
+    diet = ['leaves']
     #Constructors
     def __init__(self):
-        self.value = "Panda"
+        self.value = "panda"
+
+    def __repr__(self):
+        rep = 'panda'
+        return rep
 
 
     #Methods
     def type(self):
         return(self.value)
 
-    def diet(self):
-        return 'leaves'
+    def eats(self,Food):
+            if Food in self.diet:
+                self.Test = True
+                return
+            else:
+                Test = False
 
 
 ################## Sheep
         
 class Sheep(Mammal):
      #Attributes
-    
+    diet = ['grass']
     #Constructors
     def __init__(self):
-        self.value = "Sheep"
+        self.value = "sheep"
+
+    def __repr__(self):
+        rep = 'sheep'
+        return rep
 
 
     #Methods
@@ -240,19 +292,27 @@ class Sheep(Mammal):
     
 ################## chicken
 
-class chicken(Bird):
+class Chicken(Bird):
      #Attributes
-
+    diet = ['bug']
     #Constructors
     def __init__(self):
         self.value = "chicken"
+
+    def __repr__(self):
+        rep = 'chicken'
+        return rep
 
     #Methods
     def type(self):
         return(self.value)
 
-    def diet(self):
-        return ["bug"]
+    def eats(self,Food):
+            if Food in self.diet:
+                self.Test = True
+                return
+            else:
+                Test = False
 
 
 ########################### Others ##########################
@@ -268,7 +328,7 @@ class Bug(Animal):
         self.value = "Bug"
 
     def __repr__(self):
-        rep = 'Bug'
+        rep = 'bug'
         return rep
 
     #Methods
@@ -286,20 +346,32 @@ class Bug(Animal):
                 Test = False
 
 ## big-fish
-class big_fish(Animal):
+class Big_Fish(Animal):
      #Attributes
-
+    diet = ['little_fish']
     #Constructors
     def __init__(self):
         self.value = "big_fish"
+
+    def __repr__(self):
+        rep = 'big_fish'
+        return rep
 
     #Methods
     def type(self):
         return(self.value)
 
-    def diet(self):
-        return "little_fish"
-    
+    def reproduce(self):
+        return "Lay Eggs"
+
+    def eats(self,Food):
+            if Food in self.diet:
+                self.Test = True
+                return
+            else:
+                Test = False
+
+                
 ## grass
 class Grass(Animal):
      #Attributes

@@ -136,11 +136,11 @@ class giraffe(Mammal):
     def diet(self):
         return "leaves"
 
-################## bear
+################## bear ###################################################
         
 class Bear(Mammal):
      #Attributes
-    diet = list['big_fish','bug','chicken','cow','leaves','sheep']
+    diet = ['big_fish','Bug','chicken','cow','leaves','sheep']
 
 
     #Constructors
@@ -165,6 +165,7 @@ class Bear(Mammal):
                 return
             else:
                 Test = False
+                return
 
 ################## Cow
         

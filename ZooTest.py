@@ -11,14 +11,30 @@ Grass = Grass()
 #print(obj.diet)
 
 GroupOfZoo = [Bear, Bug, Grass]
-RightChoice = GroupOfZoo[1]
-HungryAnimal = GroupOfZoo[0]
 
-print(HungryAnimal.Test)
+for i in GroupOfZoo
+
+    HungryAnimal = GroupOfZoo[0]
+    RightChoice = GroupOfZoo[1]
+
+    print(repr(HungryAnimal), 'Is Hungry')
+    print(HungryAnimal.Test) 
+
+    print(repr(RightChoice), 'is next to', repr(HungryAnimal))
+    HungryAnimal.eats(repr(RightChoice))
+
+    if HungryAnimal.Test == True:
+        print(repr(HungryAnimal), 'eats', repr(RightChoice))
+    else:
+        print(repr(HungryAnimal), 'Does not eat', repr(RightChoice))
 
 
-HungryAnimal.eats(RightChoice.type)
+HungryAnimal.Test = False
 
+RightChoice = GroupOfZoo[2]
+
+print(repr(RightChoice))
+HungryAnimal.eats(repr(RightChoice))
 print(HungryAnimal.Test)
 
 '''

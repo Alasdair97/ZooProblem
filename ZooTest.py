@@ -12,21 +12,24 @@ Grass = Grass()
 
 GroupOfZoo = [Bear, Bug, Grass]
 
-for i in GroupOfZoo
+while GroupOfZoo:
+    
+    Length = len(GroupOfZoo)
+    HungryAnimal = GroupOfZoo[i]
 
-    HungryAnimal = GroupOfZoo[0]
-    RightChoice = GroupOfZoo[1]
+    if i == 0 and not Length == 1:
+        RightChoice = GroupOfZoo[i+1]
 
-    print(repr(HungryAnimal), 'Is Hungry')
-    print(HungryAnimal.Test) 
+        print(repr(HungryAnimal), 'Is Hungry')
+        print(HungryAnimal.Test) 
 
-    print(repr(RightChoice), 'is next to', repr(HungryAnimal))
-    HungryAnimal.eats(repr(RightChoice))
+        print(repr(RightChoice), 'is next to', repr(HungryAnimal))
+        HungryAnimal.eats(repr(RightChoice))
 
-    if HungryAnimal.Test == True:
-        print(repr(HungryAnimal), 'eats', repr(RightChoice))
-    else:
-        print(repr(HungryAnimal), 'Does not eat', repr(RightChoice))
+        if HungryAnimal.Test == True:
+                    print(repr(HungryAnimal), 'eats', repr(RightChoice))
+        else:
+            print(repr(HungryAnimal), 'does not eat', repr(RightChoice))
 
 
 HungryAnimal.Test = False

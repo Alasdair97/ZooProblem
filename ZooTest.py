@@ -1,5 +1,5 @@
 # Zoo Problem
-from ZooAnimal import Antelope,Big_Fish,Bear,Bug,Chicken,Cow,Fox,Giraffe,Leaves,Lion,Grass,Sheep
+from ZooAnimal import Antelope, Big_Fish, Bear, Bug, Chicken, Cow, Fox, Giraffe, Leaves, Lion, Grass, Sheep
 
 Bear = Bear()
 Bug = Bug()
@@ -17,7 +17,7 @@ Sheep = Sheep()
 #test group
 #GroupOfZoo = [Lion,Antelope,Bug, Bear, Grass,Fox]
 #Question Group
-GroupOfZoo = [Fox,Bug,Chicken,Sheep]
+GroupOfZoo = [Fox, Bug, Chicken, Sheep]
 
 
 
@@ -58,14 +58,14 @@ while Stop == []:
         LeftChoice = GroupOfZoo[i-1]
         HungryAnimal.eats(repr(LeftChoice))
 
-        if HungryAnimal.Test == True: #Eat and del victim from array try eat left agin
+        if HungryAnimal.Test == True: #Eat and del victim from array try eat left again
             
             print(repr(HungryAnimal), 'eats', repr(LeftChoice))
             LeftChoice.die
             del GroupOfZoo[i-1]
             HungryAnimal.Test = False
             
-        if HungryAnimal.Test == False: #Cant eat left so end
+        if HungryAnimal.Test == False: #Can not eat left so end
 
             Stop = 2
 
@@ -74,7 +74,7 @@ while Stop == []:
         LeftChoice = GroupOfZoo[i-1]
         HungryAnimal.eats(repr(LeftChoice))
 
-        if HungryAnimal.Test == True: #Eat left and del victim from array
+        if HungryAnimal.Test == True: # Eat left and del victim from array
                 
                 print(repr(HungryAnimal), 'eats', repr(LeftChoice))
                 LeftChoice.die
@@ -82,7 +82,7 @@ while Stop == []:
                 HungryAnimal.Test = False
                 i = 0
                     
-        elif HungryAnimal.Test == False: #Cant eat left so try right
+        elif HungryAnimal.Test == False: # Can not eat left so try right
             
                 RightChoice = GroupOfZoo[i+1]
                 HungryAnimal.eats(repr(RightChoice))
@@ -94,12 +94,9 @@ while Stop == []:
                     del GroupOfZoo[i+1]
                     HungryAnimal.Test = False
                     
-                elif HungryAnimal.Test == False: #Move to next animal
+                elif HungryAnimal.Test == False: # Move to next animal
 
                     i = i + 1
-            
-            
-            
 
 print('Animals left:')    
 print(GroupOfZoo)       

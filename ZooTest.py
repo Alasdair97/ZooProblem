@@ -14,67 +14,65 @@ Leaves = Leaves()
 Lion = Lion()
 Sheep = Sheep()
 
-#test group
-#GroupOfZoo = [Lion,Antelope,Bug, Bear, Grass,Fox]
-#Question Group
-GroupOfZoo = [Fox, Bug, Chicken, Sheep]
-
-
+# test group
+# GroupOfZoo = [Lion,Antelope,Bug, Bear, Grass,Fox]
+# Question Group
+GroupOfZoo = [Fox, Bug, Chicken, Sheep, Sheep]
 
 print('Starting Animals:')
 print(GroupOfZoo)
 
 i = 0
-Stop = []
+Stop = False
 
-while Stop == []:
+while not Stop:
     
     Length = len(GroupOfZoo)
     
     HungryAnimal = GroupOfZoo[i]
 
-    if i == 0 and not Length == 1: #First loop
+    if i == 0 and not Length == 1:  # First loop
         
         RightChoice = GroupOfZoo[i+1]
         HungryAnimal.eats(repr(RightChoice))
 
-        if HungryAnimal.Test == True:
+        if HungryAnimal.Test:  # If Animal does eat food
             
             print(repr(HungryAnimal), 'eats', repr(RightChoice))
             RightChoice.die
             del GroupOfZoo[i+1]
-            HungryAnimal.Test = False
+            HungryAnimal.Test = False  # Reset test after deleting other animal
             
-        elif HungryAnimal.Test == False:
+        elif not HungryAnimal.Test:
         
             i = i + 1
 
-    elif i ==0 and Length == 1: #Last animal standing
+    elif i == 0 and Length == 1:  # Last animal standing
 
-        Stop = 2
+        Stop = True
         
-    elif i != 0 and i == Length-1: #Last loop
+    elif i != 0 and i == Length-1:  # Last loop
         
         LeftChoice = GroupOfZoo[i-1]
         HungryAnimal.eats(repr(LeftChoice))
 
-        if HungryAnimal.Test == True: #Eat and del victim from array try eat left again
+        if HungryAnimal.Test == True:  # Eat and del victim from array try eat left again
             
             print(repr(HungryAnimal), 'eats', repr(LeftChoice))
             LeftChoice.die
             del GroupOfZoo[i-1]
             HungryAnimal.Test = False
             
-        if HungryAnimal.Test == False: #Can not eat left so end
+        if HungryAnimal.Test == False:  # Can not eat left so end
 
-            Stop = 2
+            Stop = True
 
-    elif i != 0 and i != Length-1: #mid loops
+    elif i != 0 and i != Length-1:  # mid loops
         
         LeftChoice = GroupOfZoo[i-1]
         HungryAnimal.eats(repr(LeftChoice))
 
-        if HungryAnimal.Test == True: # Eat left and del victim from array
+        if HungryAnimal.Test == True:  # Eat left and del victim from array
                 
                 print(repr(HungryAnimal), 'eats', repr(LeftChoice))
                 LeftChoice.die
@@ -94,7 +92,7 @@ while Stop == []:
                     del GroupOfZoo[i+1]
                     HungryAnimal.Test = False
                     
-                elif HungryAnimal.Test == False: # Move to next animal
+                elif HungryAnimal.Test == False:  # Move to next animal
 
                     i = i + 1
 

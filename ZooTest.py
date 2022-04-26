@@ -56,14 +56,15 @@ while not Stop:
         LeftChoice = GroupOfZoo[i-1]
         HungryAnimal.eats(repr(LeftChoice))
 
-        if HungryAnimal.Test == True:  # Eat and del victim from array try eat left again
+        if HungryAnimal.Test:  # Eat and del victim from array try eat left again
             
             print(repr(HungryAnimal), 'eats', repr(LeftChoice))
             LeftChoice.die
             del GroupOfZoo[i-1]
             HungryAnimal.Test = False
+            i=0
             
-        if HungryAnimal.Test == False:  # Can not eat left so end
+        elif not HungryAnimal.Test:  # Can not eat left so end
 
             Stop = True
 
@@ -72,7 +73,7 @@ while not Stop:
         LeftChoice = GroupOfZoo[i-1]
         HungryAnimal.eats(repr(LeftChoice))
 
-        if HungryAnimal.Test == True:  # Eat left and del victim from array
+        if HungryAnimal.Test:  # Eat left and del victim from array
                 
                 print(repr(HungryAnimal), 'eats', repr(LeftChoice))
                 LeftChoice.die
@@ -80,19 +81,19 @@ while not Stop:
                 HungryAnimal.Test = False
                 i = 0
                     
-        elif HungryAnimal.Test == False: # Can not eat left so try right
+        elif not HungryAnimal.Test: # Can not eat left so try right
             
                 RightChoice = GroupOfZoo[i+1]
                 HungryAnimal.eats(repr(RightChoice))
 
-                if HungryAnimal.Test == True: #Eat animal on right
+                if HungryAnimal.Test:  # Eat animal on right
                     
                     print(repr(HungryAnimal), 'eats', repr(RightChoice))
                     RightChoice.die
                     del GroupOfZoo[i+1]
                     HungryAnimal.Test = False
                     
-                elif HungryAnimal.Test == False:  # Move to next animal
+                elif not HungryAnimal.Test:  # Move to next animal
 
                     i = i + 1
 

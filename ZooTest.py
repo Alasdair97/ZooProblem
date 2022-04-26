@@ -1,11 +1,12 @@
 # Zoo Problem
-from ZooAnimal import Antelope, Big_Fish, Bear, Bug, Chicken, Cow, Fox, Giraffe, Leaves, Lion, Grass, Sheep
+from ZooAnimal import Antelope, Big_Fish, Little_Fish, Bear, Bug, Chicken, Cow, Fox, Giraffe, Leaves, Lion, Grass, Sheep
 
 Bear = Bear()
 Bug = Bug()
 Grass = Grass()
 Antelope = Antelope()
 Big_Fish = Big_Fish()
+Little_Fish = Little_Fish()
 Chicken = Chicken()
 Cow = Cow()
 Fox = Fox()

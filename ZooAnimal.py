@@ -375,6 +375,31 @@ class Big_Fish(Animal):
             else:
                 Test = False
 
+## Little-fish
+class Little_Fish(Animal):
+     #Attributes
+    diet = ['']
+    #Constructors
+    def __init__(self):
+        self.value = "little_fish"
+
+    def __repr__(self):
+        rep = 'little_fish'
+        return rep
+
+    #Methods
+    def type(self):
+        return(self.value)
+
+    def reproduce(self):
+        return "Lay Eggs"
+
+    def eats(self,Food):
+            if Food in self.diet:
+                self.Test = True
+                return
+            else:
+                Test = False
                 
 ## grass
 class Grass(Animal):

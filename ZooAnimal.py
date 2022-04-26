@@ -285,8 +285,12 @@ class Sheep(Mammal):
     def type(self):
         return(self.value)
 
-    def diet(self):
-        return 'Grass'
+    def eats(self, Food):
+        if Food in self.diet:
+            self.Test = True
+            return
+        else:
+            Test = False
     
 ########################### Birds ##########################
     

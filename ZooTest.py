@@ -17,7 +17,7 @@ Sheep = Sheep()
 # test group
 # GroupOfZoo = [Lion,Antelope,Bug, Bear, Grass,Fox]
 # Question Group
-GroupOfZoo = [Fox, Bug, Chicken, Sheep, Sheep]
+GroupOfZoo = [Fox, Bug, Chicken, Grass, Sheep]
 
 print('Starting Animals:')
 print(GroupOfZoo)

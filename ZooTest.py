@@ -39,7 +39,7 @@ while not Stop:
         if HungryAnimal.Test:  # If Animal does eat food
             
             print(repr(HungryAnimal), 'eats', repr(RightChoice))
-            RightChoice.die
+            # RightChoice.die  # If wanted to implement uncomment
             del GroupOfZoo[i+1]
             HungryAnimal.Test = False  # Reset test after deleting other animal
             
@@ -56,13 +56,13 @@ while not Stop:
         LeftChoice = GroupOfZoo[i-1]
         HungryAnimal.eats(repr(LeftChoice))
 
-        if HungryAnimal.Test:  # Eat and del victim from array try eat left again
+        if HungryAnimal.Test:  # Eat and del victim from array and try to eat left again
             
             print(repr(HungryAnimal), 'eats', repr(LeftChoice))
-            LeftChoice.die
+            # LeftChoice.die # If wanted to implement uncomment
             del GroupOfZoo[i-1]
             HungryAnimal.Test = False
-            i=0
+            i = 0
             
         elif not HungryAnimal.Test:  # Can not eat left so end
 
@@ -75,28 +75,27 @@ while not Stop:
 
         if HungryAnimal.Test:  # Eat left and del victim from array
                 
-                print(repr(HungryAnimal), 'eats', repr(LeftChoice))
-                LeftChoice.die
-                del GroupOfZoo[i-1]
-                HungryAnimal.Test = False
-                i = 0
+            print(repr(HungryAnimal), 'eats', repr(LeftChoice))
+            # LeftChoice.die # If wanted to implement uncomment
+            del GroupOfZoo[i-1]
+            HungryAnimal.Test = False
+            i = 0
                     
-        elif not HungryAnimal.Test: # Can not eat left so try right
+        elif not HungryAnimal.Test:  # Can not eat left so try right
             
-                RightChoice = GroupOfZoo[i+1]
-                HungryAnimal.eats(repr(RightChoice))
+            RightChoice = GroupOfZoo[i+1]
+            HungryAnimal.eats(repr(RightChoice))
 
-                if HungryAnimal.Test:  # Eat animal on right
+            if HungryAnimal.Test:  # Eat animal on right
                     
-                    print(repr(HungryAnimal), 'eats', repr(RightChoice))
-                    RightChoice.die
-                    del GroupOfZoo[i+1]
-                    HungryAnimal.Test = False
+                print(repr(HungryAnimal), 'eats', repr(RightChoice))
+                # RightChoice.die # If wanted to implement uncomment
+                del GroupOfZoo[i+1]
+                HungryAnimal.Test = False
                     
-                elif not HungryAnimal.Test:  # Move to next animal
+            elif not HungryAnimal.Test:  # Move to next animal
 
-                    i = i + 1
+                i = i + 1
 
 print('Animals left:')    
-print(GroupOfZoo)       
-        
+print(GroupOfZoo)
